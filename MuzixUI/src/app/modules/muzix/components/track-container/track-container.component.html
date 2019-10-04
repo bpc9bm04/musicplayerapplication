@@ -1,0 +1,5 @@
+<div class = "track-container">
+    <track-thumbnail *ngFor = 'let track of tracks'  [track]="track" [usePlaylistApi] ="usePlaylistApi"
+     (addTrack)="addTrackToPlaylist($event)" (deleteTrack)="deleteTrackFromPlaylist($event)" (bookmarkTrack)="bookmarkTheTrack($event)">
+    </track-thumbnail>        
+</div>

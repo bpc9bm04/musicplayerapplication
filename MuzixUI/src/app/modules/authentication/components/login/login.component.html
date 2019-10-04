@@ -1,0 +1,24 @@
+<form class="login-form" #registerForm="ngForm" (ngSubmit)="loginUser()" [style.fontSize.px]="20">
+  <div class="login-block">
+  
+    <div class="row">
+      <h3>Login User</h3>
+    </div>
+  
+    <div class="row">      
+      <mat-form-field class="login-input-full-width">
+        <input matInput id="userId" placeholder="User Id" [(ngModel)]="newUser.userId" name="userId" #userId="ngModel" required minlength="5" maxlength="10">
+      </mat-form-field>
+
+      <mat-form-field class="login-input-full-width">
+        <input matInput id="password" placeholder="Password" [(ngModel)]="newUser.password" name="password" type="password" required>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <button mat-raised-button class="login-user"  type="submit">Login</button>&nbsp;
+      <button mat-raised-button class="register-user" color="primary" type="submit" [routerLink]="['/register']">Register</button>      
+    </div>
+
+  </div>
+</form>

@@ -1,0 +1,22 @@
+
+<mat-card class="track-thumbnail">
+    <mat-card-header>
+        <mat-card-title>Track - {{track?.name}}</mat-card-title>
+        <mat-card-subtitle>Album - {{track?.albumName}}</mat-card-subtitle>
+        <mat-card-subtitle>Artist - {{track?.artistName}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class ="track-image" mat-card-image [src]="track?.href" [alt] = "track?.name">
+    <mat-card-content >        
+        <audio controls>
+            <source [src]="track?.previewURL" type="audio/mp3">            
+            <p>Your browser doesn't support HTML5 audio. Here is a <a href="track?.previewURL">link to the audio</a> instead.</p>
+        </audio>
+        
+    </mat-card-content>        
+    <mat-card-actions class="track-action">
+        <button *ngIf="!usePlaylistApi" mat-raised-button color="accent" (click)="addToPlaylist()" id="add-button"><mat-icon>add</mat-icon> Playlist</button>
+        <button *ngIf="usePlaylistApi" mat-raised-button color="warn" (click)="deleteFromPlaylist()"><mat-icon>delete</mat-icon></button>
+        <button *ngIf="usePlaylistApi" mat-raised-button color="primary" (click)="bookmarkTheTrack()"><mat-icon>bookmark</mat-icon></button>
+    </mat-card-actions>
+    
+</mat-card>

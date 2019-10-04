@@ -1,0 +1,16 @@
+:host{
+    height: 100vh;
+}
+.bookmark-container {
+    margin: auto;     
+    width: 90vw;
+    display: flex;    
+    flex-wrap: wrap;
+    flex-direction: row;    
+    overflow-x: auto;
+}
+.bookmark-thumbnail{    
+    width: 250px;
+    margin: 10px;    
+}
+

@@ -1,0 +1,15 @@
+<div class="playlist-container" >
+
+    <mat-card class="playlist-thumbnail" *ngFor="let playlist of playlists">
+        <mat-card-header>
+            <mat-card-title>{{playlist.name}}</mat-card-title>            
+            <mat-card-subtitle>{{playlist.description}}</mat-card-subtitle>
+            <mat-card-subtitle>Track count: {{playlist.favoriteCount}}</mat-card-subtitle>
+        </mat-card-header>
+        <img class ="playlist-image" [src]="playlist.url" [alt] = "playlist.name">
+        
+        <mat-card-actions class="playlist-action">
+                <button mat-raised-button color="primary" (click)="showTrackFromPlaylist(playlist)" id="track-button">View Tracks</button>                
+        </mat-card-actions>
+    </mat-card>
+</div>

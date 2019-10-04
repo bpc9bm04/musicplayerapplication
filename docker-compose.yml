@@ -1,0 +1,41 @@
+version: '3'
+services:
+  user-app:
+    image: user-app
+    build: accountmanager/
+    restart: always
+    network_mode: host
+    ports:
+    - 8181:8181
+    expose:
+    - 8181
+    depends_on:
+    - movie-mysql
+  muzix-app:
+    image: muzix-app
+    build: muzixmanager/
+    restart: always
+    network_mode: host
+    ports:
+    - 8080:8080
+    expose:
+    - 8080
+    depends_on:
+    - movie-mysql
+  movie-mysql:
+    image: mysql:5.5
+    network_mode: host
+    ports:
+    - 3306:3306
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: muzixdb
+        MYSQL_USER_NAME: root
+        MYSQL_PASSWORD: root
+  angular:
+    image: muzixui-app
+    build: MuzixUI/
+    network_mode: host
+    container_name: angular-docker
+    ports:
+    - 4200:4200

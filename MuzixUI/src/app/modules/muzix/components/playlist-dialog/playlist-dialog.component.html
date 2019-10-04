@@ -1,0 +1,30 @@
+<span> 
+   <h4 mat-dialog-title>Tracks from: {{data.obj.name}} </h4>  
+</span>
+
+<div mat-dialog-content class="playlist-dialog-container" style="display:flex; flex-wrap: wrap;" >
+
+    <mat-card class="playlist-dialog-thumbnail" *ngFor="let track of data.obj.tracks" style="width:230px; margin:10px;">
+        <mat-card-header>
+                <mat-card-title>{{track?.name}}</mat-card-title>
+                <mat-card-subtitle>Album - {{track?.albumName}}</mat-card-subtitle>
+                <mat-card-subtitle>Artist - {{track?.artistName}}</mat-card-subtitle>
+        </mat-card-header>
+        <div class ="playlist-dialog-image">
+             <img  [src]="track.href" [alt] = "track?.name">
+        </div>
+        <mat-card-content>                  
+            <audio controls  style="width: 153px;">
+                <source [src]="track?.previewURL" type="audio/mp3">            
+                <p>Your browser doesn't support HTML5 audio. Here is a <a href="track?.previewURL">link to the audio</a> instead.</p>
+            </audio> 
+        </mat-card-content> 
+        <mat-card-actions class="track-action">
+            <button mat-raised-button color="accent" (click)="addTrackToPlaylist(track)" id="add-button"><mat-icon>add</mat-icon> Playlist</button>
+        </mat-card-actions>                    
+    </mat-card>         
+</div>
+
+<div mat-dialog-actions align="end">    
+    <button mat-raised-button color='warn' (click)="onCloseClick()"><mat-icon>close</mat-icon></button>     
+</div>   

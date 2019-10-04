@@ -1,0 +1,28 @@
+image: java:8-jdk
+stages:
+ - test
+ - build
+services:
+ - 'mysql:5.5'
+variables:
+ MYSQL_DATABASE: muzixdb
+ MYSQL_CI_URL: jdbc:mysql://mysql/muzixdb
+ MYSQL_USER_NAME: root
+ MYSQL_PASSWORD: root
+ MYSQL_ROOT_PASSWORD: root
+cache:
+ paths:
+ - .m2/repository
+ - target
+maven-test:
+ image: maven:3.5.2-jdk-8
+ stage: test
+ script: "mvn test -B"
+maven-build:
+ image: maven:3.5.2-jdk-8
+ stage: build
+ script: "mvn package -B"
+ artifacts:
+  paths:
+   - target/*.jar
+

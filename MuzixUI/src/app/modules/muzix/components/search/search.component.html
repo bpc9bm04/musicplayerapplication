@@ -1,0 +1,8 @@
+<form class ="search-form">
+    <mat-form-field>
+        <input matInput type="text" #box (keyup.enter)="onEnter(box.value)" id="search-button-input">
+        <mat-placeholder>Search Track</mat-placeholder>
+    </mat-form-field>    
+</form>
+
+<track-container [tracks]="tracks"></track-container>

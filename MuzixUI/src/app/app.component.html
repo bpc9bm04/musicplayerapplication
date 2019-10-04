@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <span> Musics </span>       
+    <button mat-button [routerLink] = "['/playlists/featured']" id="featured-button"> Featured Playlists </button>
+    <button mat-button [routerLink] = "['/tracks/top']" id="top-button"> Top Tracks </button>
+    <button mat-button [routerLink] = "['/tracks/playlist']" id="playlist-button"> My Playlist </button>
+    <button mat-button [routerLink] = "['/tracks/bookmarks']" id="bookmark-button"> Bookmarks </button>
+    <button mat-icon-button [routerLink] = "['/tracks/search']" id="search-button">         
+        <mat-icon aria-label="Search">search</mat-icon>        
+    </button>
+    <button mat-button (click)= "logout()" *ngIf="showLogout">Logout</button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

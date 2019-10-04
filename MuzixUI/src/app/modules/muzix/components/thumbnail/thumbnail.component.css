@@ -1,0 +1,16 @@
+.track-thumbnail{
+    width: 300px;
+    margin: 10px;
+}
+.track-image {
+    height: 450px;
+}
+.track-comments {
+    height: 25px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: x-small;
+}
+.track-action {
+    text-align:  right;
+}

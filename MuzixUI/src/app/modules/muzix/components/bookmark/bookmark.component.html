@@ -1,0 +1,12 @@
+<div class="bookmark-container" >
+    <mat-card class="bookmark-thumbnail" *ngFor="let track of tracks" >       
+        <mat-card-header>
+            <mat-card-title>Track: {{track.name}}</mat-card-title>            
+            <mat-card-subtitle>Album: {{track.albumName}}</mat-card-subtitle>
+            <mat-card-subtitle>Artist: {{track.artistName}} </mat-card-subtitle>
+        </mat-card-header>              
+        <mat-card-actions class="track-action">
+                <button mat-raised-button color="accent" (click)="moveTrackToPlaylist(track)" id="move-button"><mat-icon>forward</mat-icon> Playlist</button>                
+        </mat-card-actions>        
+    </mat-card>
+</div>
